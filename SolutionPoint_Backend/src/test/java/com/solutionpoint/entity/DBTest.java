@@ -9,7 +9,7 @@ public class DBTest {
 
     @Test
     public void DBTest(){
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/solution?serverTimezone=UTC", "solution", "solution1234")) {
+        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/solution?serverTimezone=UTC", "solution", "solution1234")) {
             System.out.println(conn);
         }catch(Exception e){
             e.printStackTrace();
