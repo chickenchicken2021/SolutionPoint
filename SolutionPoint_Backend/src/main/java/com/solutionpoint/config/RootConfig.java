@@ -18,7 +18,7 @@ public class RootConfig {
     public DataSource dataSource(){
         HikariConfig hikariConfig = new HikariConfig();
         hikariConfig.setDriverClassName("com.mysql.jdbc.Driver");
-        hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3307/com?serverTimezone=UTC");
+        hikariConfig.setJdbcUrl("jdbc:mysql://localhost:3307/solution?serverTimezone=UTC");
         hikariConfig.setUsername("solution");
         hikariConfig.setPassword("solution1234");
 
