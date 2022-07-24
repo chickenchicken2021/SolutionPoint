@@ -39,12 +39,13 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 		System.out.println("header : "+header);
 		String token = request.getHeader(JwtProperties.HEADER_STRING)
 				.replace(JwtProperties.TOKEN_PREFIX, "");
+
+		String memId = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
+				.getClaim("memId").asString();
+		System.out.println(memId);
 		
-		String username = JWT.require(Algorithm.HMAC512(JwtProperties.SECRET)).build().verify(token)
-				.getClaim("username").asString();
-		
-		if(username != null) {	
-			Member member = memberMapper.findByMemId(username);
+		if(memId != null) {
+			Member member = memberMapper.findByMemId(memId);
 		
 			PrincipalDetails principalDetails = new PrincipalDetails(member);
 			Authentication authentication =
