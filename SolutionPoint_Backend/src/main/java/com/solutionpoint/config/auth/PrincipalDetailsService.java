@@ -21,7 +21,7 @@ public class PrincipalDetailsService implements UserDetailsService{
 		System.out.println("PrincipalDetailsService : 진입");
 		Member member = memberMapper.findByMemId(username);
 				
-				return new PrincipalDetails(member);
+		return new PrincipalDetails(member);
 	}
 
 }

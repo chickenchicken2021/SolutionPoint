@@ -1,27 +1,26 @@
 package com.solutionpoint.entity;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import lombok.Data;
-
 @Data
 public class Member {
+	private int memSeq;
+	private String memId;
+	private String memPasswd;
+	private String memName;
+	private String memPhone;
+	private String memEmail;
+	private String memRoles;
+	private String memRegDate;
 
-	private int  MemSeq; 	
-	private String MemId;	
-	private String MemPasswd;	
-	private String MemName;
-	private String MemPhone;	
-	private String MemEmail;
-	private String MemRole;
-	private String MemRegDate;
-	
 	public List<String> getRoleList(){
-	    if(this.MemRole.length() > 0){
-	        return Arrays.asList(this.MemRole.split(","));
-	    }
-	    return new ArrayList<>();
+		if(this.memRoles.length() > 0){
+			return Arrays.asList(this.memRoles.split(","));
+		}
+		return new ArrayList<>();
 	}
 }
